@@ -1,0 +1,40 @@
+<section>
+  <div class="page-header">
+    <h1>User <span ng-bind="vm.user.username"></span></h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.userForm" ng-submit="vm.update(vm.userForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label for="firstName">Nome</label>
+          <input type="text" id="firstName" name="firstName" class="form-control" ng-model="vm.user.firstName" placeholder="Nome" required />
+          <div ng-messages="vm.userForm.firstName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Não é possível deixar este campo vazio.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="lastName">Sobrenome</label>
+          <input type="text" id="lastName" name="lastName" class="form-control" ng-model="vm.user.lastName" placeholder="Sobrenome" required />
+          <div ng-messages="vm.userForm.lastName.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Não é possível deixar este campo vazio.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="roles">Funções</label>
+          <div class="controls">
+            <input class="form-control" type="text" name="roles" ng-model="vm.user.roles" id="roles" ng-list required />
+            <div ng-messages="vm.userForm.roles.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">É necessário selecionar pelo menos uma função.</p>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Update" class="btn btn-default">
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

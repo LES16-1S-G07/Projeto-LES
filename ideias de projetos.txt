@@ -1,3 +1,0 @@
-Nós temos 2 ideias de projetos:
-- Sistema de academia, que desenvolvemos na disciplina de Linguagem de Programação 2 com a prof. Denilce
-- Sistema de vendas, que desenvolvemos na disciplina de Programação Web com o prof. Glauco
