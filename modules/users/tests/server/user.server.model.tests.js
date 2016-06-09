@@ -228,7 +228,7 @@ describe('User Model Unit Tests:', function () {
         });
       });
     });
-
+    //TODO: Change the passphrase bellow
     it('should not save the passphrase in plain text', function (done) {
       var _user1 = new User(user1);
       _user1.password = 'Open-Source Full-Stack Solution for MEAN';

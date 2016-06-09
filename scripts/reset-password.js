@@ -7,19 +7,19 @@ var nodemailer = require('nodemailer'),
   mg = require('../config/lib/mongoose');
 
 var transporter = nodemailer.createTransport(config.mailer.options);
-var link = 'reset link here'; // PUT reset link here
+var link = 'Link de alteração de senha aqui'; // PUT reset link here
 var email = {
   from: config.mailer.from,
-  subject: 'Security update'
+  subject: 'Atualização de Segurança'
 };
 var text = [
-  'Dear {{name}},',
+  'Caro(a) {{name}},',
   '\n',
-  'We have updated our password storage systems to be more secure and more efficient, please click the link below to reset your password so you can login in the future.',
+  'Nós atualizamos nosso sistema de senhas para ser mais seguro, vá ao link abaixo para resetar sua senha para que possa acessar no futuro.',
   link,
   '\n',
-  'Thanks,',
-  'The Team'
+  'Atenciosamente,',
+  'Equipe de suporte ao usuário'
 ].join('\n');
 
 mg.loadModels();
@@ -61,9 +61,9 @@ mg.connect(function (db) {
           if (config.mailer.options.debug) {
             console.log('Error: ', err);
           }
-          console.error('[' + processedCount + '/' + users.length + '] ' + chalk.red('Could not send email for ' + user.displayName));
+          console.error('[' + processedCount + '/' + users.length + '] ' + chalk.red('Falha ao tentar enviar email para usuário ' + user.displayName));
         } else {
-          console.log('[' + processedCount + '/' + users.length + '] Sent reset password email for ' + user.displayName);
+          console.log('[' + processedCount + '/' + users.length + '] enviado email para usuário ' + user.displayName);
         }
 
         if (processedCount === users.length) {
@@ -79,7 +79,7 @@ mg.connect(function (db) {
       console.log();
 
       if (processedCount === 0) {
-        console.log(chalk.yellow('No users were found.'));
+        console.log(chalk.yellow('Nenhum usuário encontrado.'));
       } else {
         var alert;
         if (!errorCount) {
@@ -90,7 +90,7 @@ mg.connect(function (db) {
           alert = chalk.yellow;
         }
 
-        console.log(alert('Sent ' + successCount + ' of ' + processedCount + ' emails successfully.'));
+        console.log(alert('Enviados ' + successCount + ' emails de ' + processedCount + ' com sucesso!'));
       }
 
       process.exit(0);
