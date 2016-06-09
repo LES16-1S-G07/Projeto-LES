@@ -135,7 +135,7 @@
       expect(scope.requirementsProgress).toEqual('80');
     });
 
-    it('é necessário pelo menos um character númerico! - "P@$$word!!"', function() {
+    it('The password must contain at least one number. -"P@$$word!!"', function() {
       scope.passwordMock.password = 'P@$$word!!';
       compileDirective();
       scope.$digest();
@@ -147,14 +147,14 @@
       expect(scope.requirementsProgress).toEqual('80');
     });
 
-    it('é necessário pelo menos um caracter especial! - "Passw0rdss"', function() {
+    it('The password must contain at least one special character. - "Passw0rdss"', function() {
       scope.passwordMock.password = 'Passw0rdss';
       compileDirective();
       scope.$digest();
 
       expect(scope.form.password.$valid).toBeFalsy();
       expect(scope.form.password.$error.required).toBeFalsy();
-      expect(scope.passwordErrors).toEqual(['é necessário pelo menos um caracter especial!']);
+      expect(scope.passwordErrors).toEqual(['A senha precisa conter pelo menos um caracter especial!']);
       expect(scope.requirementsColor).toEqual('primary');
       expect(scope.requirementsProgress).toEqual('80');
     });

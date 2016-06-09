@@ -328,7 +328,7 @@ describe('User Model Unit Tests:', function () {
       });
     });
 
-    it('é necessário pelo menos um character númerico! - "P@$$word!!"', function (done) {
+    it('The password must contain at least one number. -"P@$$word!!"', function (done) {
       var _user1 = new User(user1);
       _user1.password = 'P@$$word!!';
 
@@ -338,12 +338,12 @@ describe('User Model Unit Tests:', function () {
       });
     });
 
-    it('é necessário pelo menos um caracter especial! - "Passw0rdss"', function (done) {
+    it('The password must contain at least one special character. - "Passw0rdss"', function (done) {
       var _user1 = new User(user1);
       _user1.password = 'Passw0rdss';
 
       _user1.validate(function (err) {
-        err.errors.password.message.should.equal('é necessário pelo menos um caracter especial!');
+        err.errors.password.message.should.equal('A senha precisa conter pelo menos um caracter especial!');
         done();
       });
     });

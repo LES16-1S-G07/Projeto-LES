@@ -292,7 +292,7 @@ describe('User CRUD tests', function () {
             return done(err);
           }
 
-          res.body.message.should.equal('Não foi encontrado nenhuma conta associada ao usuário informado');
+          res.body.message.should.equal('Usuário não encontrado');
           return done();
         });
     });
@@ -316,7 +316,7 @@ describe('User CRUD tests', function () {
             return done(err);
           }
 
-          res.body.message.should.equal('Username field must not be blank');
+          res.body.message.should.equal('Campo usuário é obrigatorio');
           return done();
         });
     });
@@ -340,7 +340,7 @@ describe('User CRUD tests', function () {
             return done(err);
           }
 
-          res.body.message.should.equal('It seems like you signed up using your ' + user.provider + ' account');
+          res.body.message.should.equal('Parece que você está logado usando sua conta do ' + user.provider);
           return done();
         });
     });
@@ -365,7 +365,7 @@ describe('User CRUD tests', function () {
           User.findOne({ username: user.username.toLowerCase() }, function(err, userRes) {
             userRes.resetPasswordToken.should.not.be.empty();
             should.exist(userRes.resetPasswordExpires);
-            res.body.message.should.be.equal('Failure sending email');
+            res.body.message.should.be.equal('Falha ao enviar email');
             return done();
           });
         });
@@ -465,7 +465,7 @@ describe('User CRUD tests', function () {
               return done(err);
             }
 
-            res.body.message.should.equal('Password changed successfully');
+            res.body.message.should.equal('Senha alterada com sucesso!');
             return done();
           });
       });
@@ -523,7 +523,7 @@ describe('User CRUD tests', function () {
               return done(err);
             }
 
-            res.body.message.should.equal('Current password is incorrect');
+            res.body.message.should.equal('Senha atual incorreta');
             return done();
           });
       });
@@ -552,7 +552,7 @@ describe('User CRUD tests', function () {
               return done(err);
             }
 
-            res.body.message.should.equal('Please provide a new password');
+            res.body.message.should.equal('Forneça uma nova senha');
             return done();
           });
       });
@@ -573,7 +573,7 @@ describe('User CRUD tests', function () {
           return done(err);
         }
 
-        res.body.message.should.equal('User is not signed in');
+        res.body.message.should.equal('Usuário não está logado.');
         return done();
       });
   });
@@ -827,7 +827,7 @@ describe('User CRUD tests', function () {
             return done(userInfoErr);
           }
 
-          userInfoRes.body.message.should.equal('User is not signed in');
+          userInfoRes.body.message.should.equal('Usuário não está logado.');
 
           // Call the assertion callback
           return done();
@@ -845,7 +845,7 @@ describe('User CRUD tests', function () {
           return done(userInfoErr);
         }
 
-        userInfoRes.body.message.should.equal('User is not signed in');
+        userInfoRes.body.message.should.equal('Usuário não está logado.');
 
         // Call the assertion callback
         return done();

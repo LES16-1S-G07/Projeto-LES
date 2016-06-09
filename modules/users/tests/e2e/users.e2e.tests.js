@@ -234,7 +234,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('é necessário pelo menos um caracter especial!');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha precisa conter pelo menos um caracter especial!');
     });
 
     it('Should Successfully register new user', function () {
@@ -408,7 +408,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('é necessário pelo menos um caracter especial!');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha precisa conter pelo menos um caracter especial!');
     });
 
     it('Should report Senhas não correspondem!', function () {
@@ -436,7 +436,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Changed
-      expect(element.all(by.css('.text-success')).get(0).getText()).toBe('Password Changed Successfully');
+      expect(element.all(by.css('.text-success')).get(0).getText()).toBe('Senha alterada com sucesso!');
     });
   });
 });

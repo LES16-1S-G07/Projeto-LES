@@ -38,7 +38,7 @@ exports.forgot = function (req, res, next) {
             });
           } else if (user.provider !== 'local') {
             return res.status(400).send({
-              message: 'Parece que você está logado usando sua conta de ' + user.provider + ' '
+              message: 'Parece que você está logado usando sua conta do ' + user.provider + ' '
             });
           } else {
             user.resetPasswordToken = token;
@@ -84,7 +84,7 @@ exports.forgot = function (req, res, next) {
           });
         } else {
           return res.status(400).send({
-            message: 'Falha no envio do email'
+            message: 'Falha ao enviar email'
           });
         }
 
@@ -161,7 +161,7 @@ exports.reset = function (req, res, next) {
             });
           } else {
             return res.status(400).send({
-              message: 'Senhas não correspondem'
+              message: 'Senhas não correspondem!'
             });
           }
         } else {
@@ -233,7 +233,7 @@ exports.changePassword = function (req, res, next) {
               });
             } else {
               res.status(400).send({
-                message: 'Senhas não correspondem'
+                message: 'Senhas não correspondem!'
               });
             }
           } else {
@@ -254,7 +254,7 @@ exports.changePassword = function (req, res, next) {
     }
   } else {
     res.status(400).send({
-      message: 'Usuário precisa estar logado'
+      message: 'Usuário não está logado.'
     });
   }
 };

@@ -45,7 +45,7 @@ exports.update = function (req, res) {
     });
   } else {
     res.status(400).send({
-      message: 'Usuário não se encontra logado'
+      message: 'Usuário não está logado.'
     });
   }
 };
