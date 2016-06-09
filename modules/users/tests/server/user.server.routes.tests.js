@@ -292,7 +292,7 @@ describe('User CRUD tests', function () {
             return done(err);
           }
 
-          res.body.message.should.equal('No account with that username has been found');
+          res.body.message.should.equal('Não foi encontrado nenhuma conta associada ao usuário informado');
           return done();
         });
     });
@@ -494,7 +494,7 @@ describe('User CRUD tests', function () {
               return done(err);
             }
 
-            res.body.message.should.equal('Passwords do not match');
+            res.body.message.should.equal('Senhas não correspondem!');
             return done();
           });
       });

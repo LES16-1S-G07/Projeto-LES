@@ -162,7 +162,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('The password must be fewer than 128 characters.');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha não deve ser maior do que 128 digitos..');
     });
 
     it('Should report a password with more than 3 or more repeating characters - "P@$$w0rd!!!"', function () {
@@ -198,7 +198,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('The password must contain at least one uppercase letter.');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('Precisa haver pelo menos um character em maiusculo!');
     });
 
     it('Should report a password with less than one number - "P@$$word!!"', function () {
@@ -216,7 +216,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('The password must contain at least one number.');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('é necessário pelo menos um character númerico!');
     });
 
     it('Should report a password with less than one special character - "Passw0rdss"', function () {
@@ -234,7 +234,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('The password must contain at least one special character.');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('é necessário pelo menos um caracter especial!');
     });
 
     it('Should Successfully register new user', function () {
@@ -360,7 +360,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('The password must be fewer than 128 characters.');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha não deve ser maior do que 128 digitos..');
     });
 
     it('Should report a password with more than 3 or more repeating characters - "P@$$w0rd!!!"', function () {
@@ -384,7 +384,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('The password must contain at least one uppercase letter.');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('Precisa haver pelo menos um character em maiusculo!');
     });
 
     it('Should report a password with less than one number - "P@$$word!!"', function () {
@@ -396,7 +396,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('The password must contain at least one number.');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('é necessário pelo menos um character númerico!');
     });
 
     it('Should report a password with less than one special character - "Passw0rdss"', function () {
@@ -408,10 +408,10 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('The password must contain at least one special character.');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('é necessário pelo menos um caracter especial!');
     });
 
-    it('Should report passwords do not match', function () {
+    it('Should report Senhas não correspondem!', function () {
       browser.get('http://localhost:3001/settings/password');
       // Enter Current Password
       element(by.model('vm.passwordDetails.currentPassword')).sendKeys(user1.password);
@@ -422,7 +422,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Errors
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('Passwords do not match.');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('Senhas não correspondem!.');
     });
 
     it('Should change the password to - "P@$$w0rds!!"', function () {

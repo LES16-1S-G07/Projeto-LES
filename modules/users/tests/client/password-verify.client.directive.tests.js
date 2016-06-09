@@ -69,7 +69,7 @@
       expect(scope.form.$valid).toBeTruthy();
     });
 
-    it('should show error when passwords do not match', function () {
+    it('should show error when Senhas não correspondem!', function () {
       compileDirective();
       scope.passwordMock.newPassword = 'P@ssw0rd!!';
       scope.passwordMock.verifyPassword = 'P@ssw0rd!';

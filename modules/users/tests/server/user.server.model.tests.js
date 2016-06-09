@@ -303,7 +303,7 @@ describe('User Model Unit Tests:', function () {
       _user1.password = ')!/uLT="lh&:`6X!]|15o!$!TJf,.13l?vG].-j],lFPe/QhwN#{Z<[*1nX@n1^?WW-%_.*D)m$toB+N7z}kcN#B_d(f41h%w@0F!]igtSQ1gl~6sEV&r~}~1ub>If1c+';
 
       _user1.validate(function (err) {
-        err.errors.password.message.should.equal('The password must be fewer than 128 characters.');
+        err.errors.password.message.should.equal('A senha não deve ser maior do que 128 digitos..');
         done();
       });
     });
@@ -318,32 +318,32 @@ describe('User Model Unit Tests:', function () {
       });
     });
 
-    it('should not allow a password with no uppercase letters - "p@$$w0rd!!"', function (done) {
+    it('Precisa haver pelo menos um character em maiusculo! - "p@$$w0rd!!"', function (done) {
       var _user1 = new User(user1);
       _user1.password = 'p@$$w0rd!!';
 
       _user1.validate(function (err) {
-        err.errors.password.message.should.equal('The password must contain at least one uppercase letter.');
+        err.errors.password.message.should.equal('Precisa haver pelo menos um character em maiusculo!');
         done();
       });
     });
 
-    it('should not allow a password with less than one number - "P@$$word!!"', function (done) {
+    it('é necessário pelo menos um character númerico! - "P@$$word!!"', function (done) {
       var _user1 = new User(user1);
       _user1.password = 'P@$$word!!';
 
       _user1.validate(function (err) {
-        err.errors.password.message.should.equal('The password must contain at least one number.');
+        err.errors.password.message.should.equal('é necessário pelo menos um character númerico!');
         done();
       });
     });
 
-    it('should not allow a password with less than one special character - "Passw0rdss"', function (done) {
+    it('é necessário pelo menos um caracter especial! - "Passw0rdss"', function (done) {
       var _user1 = new User(user1);
       _user1.password = 'Passw0rdss';
 
       _user1.validate(function (err) {
-        err.errors.password.message.should.equal('The password must contain at least one special character.');
+        err.errors.password.message.should.equal('é necessário pelo menos um caracter especial!');
         done();
       });
     });
