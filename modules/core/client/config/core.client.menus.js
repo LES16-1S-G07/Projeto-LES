@@ -28,7 +28,6 @@
       title: 'Editar Foto de Perfil',
       state: 'settings.picture'
     });
-
     menuService.addSubMenuItem('account', 'settings', {
       title: 'Alterar Senha',
       state: 'settings.password'
@@ -37,6 +36,10 @@
     menuService.addSubMenuItem('account', 'settings', {
       title: 'Gerenciar Contas Sociais',
       state: 'settings.accounts'
+    });
+    menuService.addSubMenuItem('account', 'settings', {
+      title: 'Agenda Pessoal',
+      state: 'settings.personal'
     });
   }
 }());

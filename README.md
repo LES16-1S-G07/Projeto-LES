@@ -11,7 +11,7 @@
 * [Node.js](https://nodejs.org/en/download/). Sê tiver problemas, verifique por soluções em [GitHub Gist](https://gist.github.com/isaacs/579814)
 * [MongoDB](http://www.mongodb.org/downloads), e use a porta padrão(27017).
 * [ Ruby](https://www.ruby-lang.org/en/documentation/installation/)
-* [Bower Package Manager](http://bower.io/) - front-end packages. Tenha certeza de ter instalado Node.js e npm first, depois instalar bower globalmente usando npm:
+* [Bower Package Manager](http://bower.io/) - front-end packages. Tenha certeza de ter instalado Node.js e npm, depois instalar bower globalmente usando npm:
 
 ```bash
 $ npm install -g bower
