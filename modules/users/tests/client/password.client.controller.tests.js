@@ -98,7 +98,7 @@
         });
 
         describe('POST error', function() {
-          var errorMessage = 'No account with that username has been found';
+          var errorMessage = 'Não foi encontrado nenhuma conta associada ao usuário informado';
           beforeEach(function() {
             $httpBackend.when('POST', '/api/auth/forgot', credentials).respond(400, {
               'message': errorMessage
@@ -118,7 +118,7 @@
         });
 
         describe('POST success', function() {
-          var successMessage = 'An email has been sent to the provided email with further instructions.';
+          var successMessage = 'Foi enviado email com futuras instruções.';
           beforeEach(function() {
             $httpBackend.when('POST', '/api/auth/forgot', credentials).respond({
               'message': successMessage
@@ -158,7 +158,7 @@
         });
 
         it('POST error should set scope.error to response message', function() {
-          var errorMessage = 'Passwords do not match';
+          var errorMessage = 'Senhas não correspondem!';
           $httpBackend.when('POST', '/api/auth/reset/' + token, passwordDetails).respond(400, {
             'message': errorMessage
           });

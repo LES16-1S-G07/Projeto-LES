@@ -26,7 +26,6 @@ config/env/local-*.js
 *.pem
 *.md
 
-# Ignoring MEAN.JS's gh-pages branch for documenation
 _site/
 
 # General

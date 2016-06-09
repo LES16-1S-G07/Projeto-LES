@@ -4,8 +4,8 @@ declared-services:
     label: mongodb
     plan: 100
 applications:
-- name: fatec-gym
-  host: fatec-gym-${random-word}
+- name: C-Force42
+  host: C-Force42-${random-word}
   memory: 128M
   services:
   - mean-mongo

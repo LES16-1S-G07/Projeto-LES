@@ -46,7 +46,7 @@
         templateUrl: 'modules/core/client/views/horarios.html',
         data: {
           ignoreState: true,
-          pageTitle: 'Horário de Aulas'
+          pageTitle: 'Horário das aulas'
         }
       })
       .state('not-found', {

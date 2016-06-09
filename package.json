@@ -1,14 +1,13 @@
 {
-  "name": "fatec-gym",
-  "description": "Um site sobre um academia em alguma fatec distante.",
-  "version": "0.1.0-beta",
+  "name": "C-Force42",
+  "description": "Um website sobre a academia C-Force42.",
+  "version": "0.1.3-beta",
   "meanjs-version": "0.5.0-beta",
   "private": false,
   "author": "Bruna, Emerson, Rafael, William KY, Willian DA",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/meanjs/mean.git"
   },
   "engines": {
     "node": ">=0.12.0",
@@ -71,6 +70,7 @@
     "coveralls": "~2.11.6",
     "eslint": "~2.2.0",
     "eslint-config-airbnb": "~6.0.2",
+    "grunt": "^0.4.5",
     "grunt-concurrent": "~2.0.0",
     "grunt-contrib-copy": "~0.8.0",
     "grunt-contrib-csslint": "~0.4.0",

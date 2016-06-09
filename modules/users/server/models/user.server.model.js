@@ -198,7 +198,7 @@ UserSchema.statics.generateRandomPassphrase = function () {
 
     // Send the rejection back if the passphrase fails to pass the strength test
     if (owasp.test(password).errors.length) {
-      reject(new Error('Um erro inexperado ocorreu durante a criação da passphrase'));
+      reject(new Error('Um erro inexperado ocorreu durante a criação da senha'));
     } else {
       // resolve with the validated passphrase
       resolve(password);

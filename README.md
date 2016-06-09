@@ -1,87 +1,67 @@
 
-MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.
+## Tecnologias utilizadas
+* [MeanJS]( https://github.com/meanjs/mean)
+* [MongoDB](http://www.mongodb.org/)
+* [Node.js](http://www.nodejs.org/)
+* [Express](http://expressjs.com/)
+* [AngularJS](http://angularjs.org/)
 
-## Prerequisites
-Make sure you have installed all of the following prerequisites on your development machine:
-* Git - [Download & Install Git](https://git-scm.com/downloads). OSX and Linux machines typically have this already installed.
-* Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager. If you encounter any problems, you can also use this [GitHub Gist](https://gist.github.com/isaacs/579814) to install Node.js.
-  * Node v5 IS NOT SUPPORTED AT THIS TIME!
-* MongoDB - [Download & Install MongoDB](http://www.mongodb.org/downloads), and make sure it's running on the default port (27017).
-* Ruby - [Download & Install Ruby](https://www.ruby-lang.org/en/documentation/installation/)
-* Bower - You're going to use the [Bower Package Manager](http://bower.io/) to manage your front-end packages. Make sure you've installed Node.js and npm first, then install bower globally using npm:
+## Pré-requisitos
+* [Git](https://git-scm.com/downloads).
+* [Node.js](https://nodejs.org/en/download/). Sê tiver problemas, verifique por soluções em [GitHub Gist](https://gist.github.com/isaacs/579814)
+* [MongoDB](http://www.mongodb.org/downloads), e use a porta padrão(27017).
+* [ Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+* [Bower Package Manager](http://bower.io/) - front-end packages. Tenha certeza de ter instalado Node.js e npm first, depois instalar bower globalmente usando npm:
 
 ```bash
 $ npm install -g bower
 ```
 
-* Grunt - You're going to use the [Grunt Task Runner](http://gruntjs.com/) to automate your development process. Make sure you've installed Node.js and npm first, then install grunt globally using npm:
+* Grunt - Sê decidir utilizar [Grunt Task Runner](http://gruntjs.com/) para automatizar o processo de desenvolvimento.
 
 ```bash
 $ npm install -g grunt-cli
 ```
 
-* Sass - You're going to use [Sass](http://sass-lang.com/) to compile CSS during your grunt task. Make sure you have ruby installed, and then install Sass using gem install:
+* [Sass](http://sass-lang.com/) para compilar CSS durante o processamento do grunt. Requer ruby, instale usando gem install:
 
 ```bash
 $ gem install sass
 ```
-
-* Gulp - (Optional) You may use Gulp for Live Reload, Linting, and SASS or LESS.
-
-```bash
-$ npm install gulp -g
-```
 ## Quick Install
-The first thing you should do is install the Node.js dependencies. The boilerplate comes pre-bundled with a package.json file that contains the list of modules you need to start your application. To learn more about the modules installed visit the npm & Package.json section.
 
-To install Node.js dependencies you're going to use npm again. In the application folder run this in the command-line:
+Para instalar dependências do Node.js use npm novamente. Na pasta da aplicação rode pelo console:
 
 ```bash
 $ npm install
 ```
-## Running Your Application
-After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:
-
+## Rodando a aplicação
 ```
 $ grunt
 ```
+A aplicação deve rodar na porta 3000 em ambiente de desenvolvimento (veja /config/env/* para mais detalhes)
+* [http://localhost:3000](http://localhost:3000)
+* explore `config/env/development.js` para mais informações
 
-Your application should run on port 3000 with the *development* environment configuration, so in your browser just go to [http://localhost:3000](http://localhost:3000)
-
-That's it! Your application should be running. To proceed with your development, check the other sections in this documentation.
-If you encounter any problems, try the Troubleshooting section.
-
-* explore `config/env/development.js` for development environment configuration options
-
-### Running in Production mode
-To run your application with *production* environment configuration, execute grunt as follows:
+### Modo de produção
 
 ```bash
 $ grunt prod
 ```
+* explore `config/env/production.js` para mais informações
 
-* explore `config/env/production.js` for production environment configuration options
+### Rodando com User Seed
+Ira tentar gerar usuários 'user' e 'admin'. Sê já existir ira ser mostrado no console.
 
-### Running with User Seed
-To have default account(s) seeded at runtime:
-
-In Development:
+Em desenvolvimento:
 ```bash
 MONGO_SEED=true grunt
 ```
-It will try to seed the users 'user' and 'admin'. If one of the user already exists, it will display an error message on the console. Just grab the passwords from the console.
 
-In Production:
+Em Produção:
 ```bash
 MONGO_SEED=true grunt prod
 ```
-This will seed the admin user one time if the user does not already exist. You have to copy the password from the console and save it.
 
-## Community
-* Use the [Official Website](http://meanjs.org) to learn about changes and the roadmap.
-* Join #meanjs on freenode.
-* Discuss it in the new [Google Group](https://groups.google.com/d/forum/meanjs)
-* Ping us on [Twitter](http://twitter.com/meanjsorg) and [Facebook](http://facebook.com/meanjs)
-
-## Credits
-Baseado no incrivel template criado pelo [Time MeanJS]( https://github.com/meanjs/mean)
+## Créditos
+Baseado no template criado pelo [Time MeanJS]( https://github.com/meanjs/mean)

@@ -22,16 +22,16 @@ mongoose.connect(function (db) {
 
   // Remove the index
   userCollection.dropIndex(_indexToRemove, function (err, result) {
-    var message = 'Successfully removed the index "' + _indexToRemove + '".';
+    var message = 'Removido o index "' + _indexToRemove + '".';
 
     if (err) {
       errors.push(err);
-      message = 'An error occured while removing the index "' + 
+      message = 'Ocorreu um erro ao tentar remover o index "' +
         _indexToRemove + '".';
 
       if (err.message.indexOf('index not found with name') !== -1) {
-        message = 'Index "' + _indexToRemove + '" could not be found.' +
-          '\r\nPlease double check the index name in your ' +
+        message = 'Index "' + _indexToRemove + '" não pode ser encontrado.' +
+          '\r\nFavor checar a id deste index no banco de dados mongodb ' +
           'mongodb User collection.';
       }
 
@@ -57,8 +57,8 @@ function reportAndExit(message) {
     }
   } else {
     console.log(chalk.green(message));
-    console.log(chalk.green('The next time your application starts, ' +
-      'Mongoose will rebuild the index "' + _indexToRemove + '".'));
+    console.log(chalk.green('Na proxima vez que o app iniciar, ' +
+      'Mongoose vai reconstruir o index "' + _indexToRemove + '".'));
     process.exit(0);
   }
 }
