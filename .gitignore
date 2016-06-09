@@ -26,6 +26,7 @@ config/env/local-*.js
 *.pem
 *.md
 
+# Ignoring gh-pages branch for documentation
 _site/
 
 # General
