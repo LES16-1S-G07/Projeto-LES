@@ -99,7 +99,7 @@
       expect(scope.requirementsProgress).toEqual('80');
     });
 
-    it('should not allow a greater than 128 characters long', function() {
+    it('A senha não deve ser maior do que 128 digitos.', function() {
       scope.passwordMock.password = ')!/uLT="lh&:`6X!]|15o!$!TJf,.13l?vG].-j],lFPe/QhwN#{Z<[*1nX@n1^?WW-%_.*D)m$toB+N7z}kcN#B_d(f41h%w@0F!]igtSQ1gl~6sEV&r~}~1ub>If1c+';
       compileDirective();
       scope.$digest();
@@ -135,19 +135,19 @@
       expect(scope.requirementsProgress).toEqual('80');
     });
 
-    it('The password must contain at least one number. -"P@$$word!!"', function() {
+    it('A senha precisa conter pelo menos um character númerico! -"P@$$word!!"', function() {
       scope.passwordMock.password = 'P@$$word!!';
       compileDirective();
       scope.$digest();
 
       expect(scope.form.password.$valid).toBeFalsy();
       expect(scope.form.password.$error.required).toBeFalsy();
-      expect(scope.passwordErrors).toEqual(['é necessário pelo menos um character númerico!']);
+      expect(scope.passwordErrors).toEqual(['A senha precisa conter pelo menos um character númerico!']);
       expect(scope.requirementsColor).toEqual('primary');
       expect(scope.requirementsProgress).toEqual('80');
     });
 
-    it('The password must contain at least one special character. - "Passw0rdss"', function() {
+    it('A senha precisa conter pelo menos um caracter especial! - "Passw0rdss"', function() {
       scope.passwordMock.password = 'Passw0rdss';
       compileDirective();
       scope.$digest();

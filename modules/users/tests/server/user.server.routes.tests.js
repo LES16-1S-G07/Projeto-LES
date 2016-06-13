@@ -34,7 +34,7 @@ describe('User CRUD tests', function () {
     // Create user credentials
     credentials = {
       username: 'username',
-      password: 'M3@n.jsI$Aw3$0m3'
+      password: '5ag3YUprU3tEs!Up'
     };
 
     // Create a new user
@@ -712,7 +712,7 @@ describe('User CRUD tests', function () {
 
     var credentials2 = {
       username: 'username2',
-      password: 'M3@n.jsI$Aw3$0m3'
+      password: '5ag3YUprU3tEs!Up'
     };
 
     _user2.username = credentials2.username;
@@ -764,7 +764,7 @@ describe('User CRUD tests', function () {
 
     var credentials2 = {
       username: 'username2',
-      password: 'M3@n.jsI$Aw3$0m3'
+      password: '5ag3YUprU3tEs!Up'
     };
 
     _user2.username = credentials2.username;

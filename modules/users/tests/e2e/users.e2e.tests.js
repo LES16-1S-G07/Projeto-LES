@@ -162,7 +162,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha não deve ser maior do que 128 digitos..');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha não deve ser maior do que 128 digitos.');
     });
 
     it('Should report a password with more than 3 or more repeating characters - "P@$$w0rd!!!"', function () {
@@ -216,7 +216,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('é necessário pelo menos um character númerico!');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha precisa conter pelo menos um character númerico!');
     });
 
     it('Should report a password with less than one special character - "Passw0rdss"', function () {
@@ -360,7 +360,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha não deve ser maior do que 128 digitos..');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha não deve ser maior do que 128 digitos.');
     });
 
     it('Should report a password with more than 3 or more repeating characters - "P@$$w0rd!!!"', function () {
@@ -396,7 +396,7 @@ describe('Users E2E Tests:', function () {
       // Click Submit button
       element(by.css('button[type=submit]')).click();
       // Password Error
-      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('é necessário pelo menos um character númerico!');
+      expect(element.all(by.css('.error-text')).get(0).getText()).toBe('A senha precisa conter pelo menos um character númerico!');
     });
 
     it('Should report a password with less than one special character - "Passw0rdss"', function () {

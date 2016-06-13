@@ -298,12 +298,12 @@ describe('User Model Unit Tests:', function () {
       });
     });
 
-    it('should not allow a password greater than 128 characters long.', function (done) {
+    it('Não deve permitir uma senha maior do que 128 digitos.', function (done) {
       var _user1 = new User(user1);
       _user1.password = ')!/uLT="lh&:`6X!]|15o!$!TJf,.13l?vG].-j],lFPe/QhwN#{Z<[*1nX@n1^?WW-%_.*D)m$toB+N7z}kcN#B_d(f41h%w@0F!]igtSQ1gl~6sEV&r~}~1ub>If1c+';
 
       _user1.validate(function (err) {
-        err.errors.password.message.should.equal('A senha não deve ser maior do que 128 digitos..');
+        err.errors.password.message.should.equal('A senha não deve ser maior do que 128 digitos.');
         done();
       });
     });
@@ -328,17 +328,17 @@ describe('User Model Unit Tests:', function () {
       });
     });
 
-    it('The password must contain at least one number. -"P@$$word!!"', function (done) {
+    it('A senha precisa conter pelo menos um character númerico! -"P@$$word!!"', function (done) {
       var _user1 = new User(user1);
       _user1.password = 'P@$$word!!';
 
       _user1.validate(function (err) {
-        err.errors.password.message.should.equal('é necessário pelo menos um character númerico!');
+        err.errors.password.message.should.equal('A senha precisa conter pelo menos um character númerico!');
         done();
       });
     });
 
-    it('The password must contain at least one special character. - "Passw0rdss"', function (done) {
+    it('A senha precisa conter pelo menos um caracter especial! - "Passw0rdss"', function (done) {
       var _user1 = new User(user1);
       _user1.password = 'Passw0rdss';
 

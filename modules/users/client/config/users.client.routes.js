@@ -60,7 +60,7 @@
       .state('settings.personal', {
         url: '/personal',
         templateUrl: 'modules/users/client/views/personal.client.view.html',
-        controller: 'SettingsController',
+        //controller: 'SettingsController',
         controllerAs: 'vm',
         data: {
           pageTitle: 'Agenda Pessoal'

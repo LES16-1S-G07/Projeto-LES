@@ -10,7 +10,7 @@ module.exports = {
   // Binding to 127.0.0.1 is safer in production.
   host: process.env.HOST || '0.0.0.0',
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || '127.0.0.1') + '/mean',
     options: {
       user: '',
       pass: ''
@@ -50,17 +50,6 @@ module.exports = {
     clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
     callbackURL: '/api/auth/linkedin/callback'
   },
-  github: {
-    clientID: process.env.GITHUB_ID || 'APP_ID',
-    clientSecret: process.env.GITHUB_SECRET || 'APP_SECRET',
-    callbackURL: '/api/auth/github/callback'
-  },
-  paypal: {
-    clientID: process.env.PAYPAL_ID || 'CLIENT_ID',
-    clientSecret: process.env.PAYPAL_SECRET || 'CLIENT_SECRET',
-    callbackURL: '/api/auth/paypal/callback',
-    sandbox: false
-  },
   mailer: {
     from: process.env.MAILER_FROM || 'MAILER_FROM',
     options: {
@@ -75,15 +64,15 @@ module.exports = {
     seed: process.env.MONGO_SEED === 'true',
     options: {
       logResults: process.env.MONGO_SEED_LOG_RESULTS !== 'false',
-      seedUser: {
-        username: process.env.MONGO_SEED_USER_USERNAME || 'user',
-        provider: 'local',
-        email: process.env.MONGO_SEED_USER_EMAIL || 'user@localhost.com',
-        firstName: 'User',
-        lastName: 'Local',
-        displayName: 'User Local',
-        roles: ['user']
-      },
+      // seedUser: {
+      //   username: process.env.MONGO_SEED_USER_USERNAME || 'user',
+      //   provider: 'local',
+      //   email: process.env.MONGO_SEED_USER_EMAIL || 'user@localhost.com',
+      //   firstName: 'User',
+      //   lastName: 'Local',
+      //   displayName: 'User Local',
+      //   roles: ['user']
+      // },
       seedAdmin: {
         username: process.env.MONGO_SEED_ADMIN_USERNAME || 'admin',
         provider: 'local',

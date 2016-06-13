@@ -1,5 +1,5 @@
 'use strict';
-
+// add all the global libraries here
 module.exports = {
   client: {
     lib: {
