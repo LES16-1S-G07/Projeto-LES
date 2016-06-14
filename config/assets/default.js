@@ -19,13 +19,22 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
-        'https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'
+        //ui-calendar
+        'public/lib/jquery/dist/jquery.min.js',
+        'public/lib/moment/min/moment.min.js',
+        'public/lib/angular-ui-calendar/src/calendar.js',
+        'public/lib/fullcalendar/dist/fullcalendar.min.js',
         // endbower
+        // locale begins
+        'public/lib/angular/angular-locale_pt-br.js',
+        'public/lib/fullcalendar/dist/lang/pt-br.js'
+        // locale ends
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },
     css: [
-      'modules/*/client/css/*.css'
+      'modules/*/client/css/*.css',
+      'public/lib/fullcalendar/dist/fullcalendar.css'
     ],
     less: [
       'modules/*/client/less/*.less'

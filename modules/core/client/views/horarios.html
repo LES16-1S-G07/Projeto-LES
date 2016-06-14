@@ -1,161 +1,45 @@
-<div class="text-center">
-  <br>
-  <h1>Horários das aulas</h1>
-  <br>
-</div>
-  <div class="row">
-
-    <div class="col-md-6 text-center">
-      <div class="btn-group">
-
-        <button
-          class="btn btn-primary"
-          mwl-date-modifier
-          date="vm.viewDate"
-          decrement="vm.calendarView">
-          Ontem
-        </button>
-        <button
-          class="btn btn-default"
-          mwl-date-modifier
-          date="vm.viewDate"
-          set-to-today>
-          Hoje
-        </button>
-        <button
-          class="btn btn-primary"
-          mwl-date-modifier
-          date="vm.viewDate"
-          increment="vm.calendarView">
-          Amanhã
-        </button>
-      </div>
-    </div>
-
-    <br class="visible-xs visible-sm">
-
-    <div class="col-md-6 text-center">
-      <div class="btn-group">
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'year'">Ano</label>
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'month'">Mês</label>
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'week'">Semana</label>
-        <label class="btn btn-primary" ng-model="vm.calendarView" uib-btn-radio="'day'">Dia</label>
-      </div>
-    </div>
-
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({});
+  });
+</script>
+<section id="directives-calendar" ng-controller="CalendarController">
+  <div class="page-header">
+    <h1>Calendario de Aulas</h1>
   </div>
+  <div class="well">
+    <div class="row-fluid">
+      <div class="span4">
+        <button type="button" class="btn btn-primary" ng-click="addEvent()">
+          Adicionar Evento
+        </button>
+      </div>
 
-  <br>
-
-  <mwl-calendar
-    events="vm.events"
-    view="vm.calendarView"
-    view-title="vm.calendarTitle"
-    view-date="vm.viewDate"
-    on-event-click="vm.eventClicked(calendarEvent)"
-    on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
-    edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
-    delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
-    on-edit-event-click="vm.eventEdited(calendarEvent)"
-    on-delete-event-click="vm.eventDeleted(calendarEvent)"
-    cell-is-open="vm.isCellOpen"
-    day-view-start="06:00"
-    day-view-end="22:00"
-    day-view-split="30"
-    cell-modifier="vm.modifyCell(calendarCell)">
-  </mwl-calendar>
-
-  <br><br><br>
-
-  <h3 id="event-editor">
-    Aulas
-    <div class="clearfix"></div>
-  </h3>
-
-  <table class="table table-bordered">
-
-    <thead>
-      <tr>
-        <th>Titulo</th>
-        <th>Categoria</th>
-        <th>Começa em</th>
-        <th>Termina em</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr ng-repeat="event in vm.events track by $index">
-        <td>
-          <input
-            type="text"
-            class="form-control"
-            ng-model="event.title">
-        </td>
-        <td>
-          <select ng-model="event.type" class="form-control">
-          </select>
-        </td>
-        <td>
-          <p class="input-group" style="max-width: 250px">
-            <input
-              type="text"
-              class="form-control"
-              readonly
-              uib-datepicker-popup="dd MMMM yyyy"
-              ng-model="event.startsAt"
-              is-open="event.startOpen"
-              close-text="Close" >
-            <span class="input-group-btn">
-              <button
-                type="button"
-                class="btn btn-default"
-                ng-click="vm.toggle($event, 'startOpen', event)">
-                <i class="glyphicon glyphicon-calendar"></i>
-              </button>
-            </span>
-          </p>
-          <uib-timepicker
-            ng-model="event.startsAt"
-            hour-step="1"
-            minute-step="15"
-            show-meridian="true">
-          </uib-timepicker>
-        </td>
-        <td>
-          <p class="input-group" style="max-width: 250px">
-            <input
-              type="text"
-              class="form-control"
-              readonly
-              uib-datepicker-popup="dd MMMM yyyy"
-              ng-model="event.endsAt"
-              is-open="event.endOpen"
-              close-text="Close">
-            <span class="input-group-btn">
-              <button
-                type="button"
-                class="btn btn-default"
-                ng-click="vm.toggle($event, 'endOpen', event)">
-                <i class="glyphicon glyphicon-calendar"></i>
-              </button>
-            </span>
-          </p>
-          <uib-timepicker
-            ng-model="event.endsAt"
-            hour-step="1"
-            minute-step="15"
-            show-meridian="true">
-          </uib-timepicker>
-        </td>
-        <td>
-          <button
-            class="btn btn-danger"
-            ng-click="vm.events.splice($index, 1)">
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-
-  </table>
-</div>
+      <ul class="unstyled">
+        <li ng-repeat="e in events">
+          <div class="alert alert-info">
+            <a class="close" ng-click="remove($index)">
+              <i class="icon-remove"></i>
+            </a>
+            <b><input ng-model="e.title">
+              {{e.start | date:"MMM dd"}}
+              -
+              {{e.end | date:"MMM dd"}}</b>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="painel header">
+      <div class="btn-toolbar">
+        <p class="pull-left lead">Opções de visualização:</p>
+        <div class="btn-group pull-right">
+          <button class="btn btn-success" ng-click="changeView('agendaDay', 'myCalendar1')">Dia</button>
+          <button class="btn btn-success" ng-click="changeView('agendaWeek', 'myCalendar1')">Semana</button>
+          <button class="btn btn-success" ng-click="changeView('month', 'myCalendar1')">Mês</button>
+        </div><br/>
+      </div>
+      <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
+      <br/>
+    </div>
+  </div>
+</section>
