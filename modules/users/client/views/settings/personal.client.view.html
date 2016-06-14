@@ -1,0 +1,28 @@
+<div class="text-center">
+  <h2>
+    <p class="panel-heading">Agenda:</p>
+  </h2>
+  <!-- TODO:make the load of the personal schedule related to the user from mongoDB, create a list and use ng-repeat to fill the view -->
+  <div class="text-center form-group " ng-app="users" ng-init="date_time=[
+{subject:'Capoeira', date:'10/06/2016',time:'13:00'},
+{subject:'Personal trainer', date:'14/06/2016',time:'14:00'},
+{subject:'Fisioterapia', date:'18/06/2016',time:'13:00'}]">
+    <!-- <div class="form-group text-center" ng-app="" ng-model=""> -->
+    <!-- <editable-input></editable-input> -->
+    <ul ng-repeat="x in date_time" class="list-group">
+      <b>{{x.subject}}</b>
+      <a class="btn-danger " href="" target="_self">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></a>
+        <li class="list-group-item">
+          {{ x.date + ', ' + x.time }}</li>
+      </ul>
+    </div>
+
+    <form class="form-group text-center " action="index.html" method="post" class="form container">
+      <h3>Novo item</h3>
+      <input type="text" name="subject" ng-model="subject"/>
+      <input type="date" name="date" ng-model="date"/>
+      <input type="time" name="time" ng-model="time"/>
+      <a class="btn" href="" target="_self">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></a>
+      </form>

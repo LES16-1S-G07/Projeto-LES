@@ -59,8 +59,8 @@
       })
       .state('settings.personal', {
         url: '/personal',
-        templateUrl: 'modules/users/client/views/personal.client.view.html',
-        //controller: 'SettingsController',
+        templateUrl: 'modules/users/client/views/settings/personal.client.view.html',
+        controller: 'SettingsController',
         controllerAs: 'vm',
         data: {
           pageTitle: 'Agenda Pessoal'

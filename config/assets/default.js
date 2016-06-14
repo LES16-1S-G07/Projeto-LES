@@ -18,7 +18,8 @@ module.exports = {
         'public/lib/angular-ui-router/release/angular-ui-router.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.js',
-        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
+        'public/lib/owasp-password-strength-test/owasp-password-strength-test.js',
+        'https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'
         // endbower
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

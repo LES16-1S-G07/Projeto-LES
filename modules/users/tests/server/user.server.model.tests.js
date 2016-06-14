@@ -26,7 +26,7 @@ describe('User Model Unit Tests:', function () {
       displayName: 'Full Name',
       email: 'test@test.com',
       username: 'username',
-      password: 'M3@n.jsI$Aw3$0m3',
+      password: 'Algum_Password1!',
       provider: 'local'
     };
     // user2 is a clone of user1
