@@ -5,11 +5,13 @@
 * [Node.js](http://www.nodejs.org/)
 * [Express](http://expressjs.com/)
 * [AngularJS](http://angularjs.org/)
+* [UI-Calendar](https://github.com/angular-ui/ui-calendar)
+
 
 ## Pré-requisitos
 * [Git](https://git-scm.com/downloads).
 * [Node.js](https://nodejs.org/en/download/). Sê tiver problemas, verifique por soluções em [GitHub Gist](https://gist.github.com/isaacs/579814)
-* [MongoDB](http://www.mongodb.org/downloads), e use a porta padrão(27017).
+* [MongoDB](http://www.mongodb.org/downloads), use a porta padrão(27017).
 * [ Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 * [Bower Package Manager](http://bower.io/) - front-end packages. Tenha certeza de ter instalado Node.js e npm, depois instalar bower globalmente usando npm:
 
@@ -17,7 +19,7 @@
 $ npm install -g bower
 ```
 
-* Grunt - Sê decidir utilizar [Grunt Task Runner](http://gruntjs.com/) para automatizar o processo de desenvolvimento.
+* [Grunt Task Runner](http://gruntjs.com/) para automatizar o processo de desenvolvimento.
 
 ```bash
 $ npm install -g grunt-cli
