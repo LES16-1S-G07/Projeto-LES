@@ -1,8 +1,10 @@
 ( function () {
   'use strict';
   angular
-    .module('core.calendar')
+    .module( 'core.calendar' )
     .controller( 'CalendarController', CalendarController );
+
+  // CalendarController.$inject = ['$scope', '$compile', '$timeout', 'uiCalendarConfig'];
 
   function CalendarController( $scope, $compile, $timeout, uiCalendarConfig ) {
     var vm = this;
@@ -14,31 +16,35 @@
     /* event source that contains custom events on the scope */
     $scope.events = [
       {
+        id: 1,
         title: 'Torneio de dança',
-        start: new Date( y, m, 1 )
+        start: new Date( y, m, d + 0, 16, 0 ),
+        end: new Date( y, m, d + 2, 11, 0 ),
+        color: '#C2185B'
       },
+      //new Date( year, month, day, hour, minutes )
+      // be advice that the numbers should be express without any zeros on the left
       {
+        id: 2,
         title: 'Zumba',
-        start: new Date( y, m, d - 5 ),
-        end: new Date( y, m, d - 2 )
+        start: new Date( y, m, d + 5, 16, 0 ),
+        end: new Date( y, m, d + 2 ),
+        color: '#C2185B'
       },
       {
-        id: 999,
+        id: 3,
         title: 'Natação',
-        start: new Date( y, m, d - 3, 16, 0 ),
-        allDay: false
+        start: new Date( y, m, d + 3, 16, 0 ),
+        end: new Date( y, m, d + 2, 12, 0 ),
+        color: '#01AEE8'
       },
       {
-        id: 999,
-        title: 'Natação',
-        start: new Date( y, m, d + 4, 16, 0 ),
-        allDay: false
-      },
-      {
-        title: 'Comemoração da academia',
-        start: new Date( y, m, 28 ),
-        end: new Date( y, m, 29 ),
-        url: 'http://google.com/'
+        id: 4,
+        title: 'Aniversário da academia',
+        start: new Date( y, m, 28, 6, 0 ),
+        end: new Date( y, m, 28, 22, 0 ),
+        url: 'https://github.com/LES16-1S-G07/Projeto-LES',
+        color: '#FAC906'
       }
     ];
     /* event source that calls a function on every view switch */
@@ -54,20 +60,6 @@
         className: [ 'customFeed' ]
       } ];
       callback( events );
-    };
-
-    $scope.calEventsExt = {
-      color: '#f00',
-      textColor: 'yellow',
-      events: [
-        {
-          type: 'party',
-          title: 'Aniversario da academia',
-          start: new Date( y, m, 28 ),
-          end: new Date( y, m, 29 ),
-          url: 'http://google.com/'
-        }
-        ]
     };
     /* alert on eventClick */
     $scope.alertOnEventClick = function ( date, jsEvent, view ) {
@@ -97,10 +89,10 @@
     /* add custom event*/
     $scope.addEvent = function () {
       $scope.events.push( {
-        title: 'Open Sesame',
+        title: 'Novo',
         start: new Date( y, m, 28 ),
         end: new Date( y, m, 29 ),
-        className: [ 'openSesame' ]
+        className: [ 'Novo' ]
       } );
     };
     /* remove event */
@@ -131,21 +123,27 @@
     $scope.uiConfig = {
       calendar: {
         height: 450,
-        editable: true,
-        header: {
-          left: 'title',
-          center: '',
-          right: 'today prev,next'
+        editable: false,
+        handleWindowResize: true,
+        defaultView: 'month',
+        minTime: '05:30:00', // Start time for the calendar
+        maxTime: '22:00:00', // End time for the calendar
+        columnFormat: {
+          week: 'ddd' // Only show day of the week names
         },
-        eventClick: $scope.alertOnEventClick,
-        eventDrop: $scope.alertOnDrop,
-        eventResize: $scope.alertOnResize,
-        eventRender: $scope.eventRender
+        displayEventTime: true, // Display event time
+        header: {
+          center: 'title',
+          left: 'today prev,next'
+        }
+        // eventClick: $scope.alertOnEventClick,
+        // eventDrop: $scope.alertOnDrop,
+        // eventResize: $scope.alertOnResize,
+        // eventRender: $scope.eventRender
       }
     };
     /* event sources array*/
     $scope.eventSources = [ $scope.events, $scope.eventSource, $scope.eventsF ];
-    $scope.eventSources2 = [ $scope.calEventsExt, $scope.eventsF, $scope.events ];
   }
   /* EOF */
-})();
+} )();

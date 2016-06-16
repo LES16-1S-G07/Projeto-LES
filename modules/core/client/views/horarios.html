@@ -1,44 +1,51 @@
-<script type="text/javascript">
+<script>
   $(document).ready(function() {
     $('#calendar').fullCalendar({});
   });
 </script>
 <section id="directives-calendar" ng-controller="CalendarController">
   <div class="page-header">
-    <h1>Calendario de Aulas</h1>
+    <h2>Calendario de Aulas</h2>
   </div>
+  <!-- events modifications begins -->
   <div class="well">
-    <div class="row-fluid">
+    <!-- <div class="row-fluid">
+      <ul class="unstyled" id={{e.id}}>
+        <li ng-repeat="e in events">
+          <div class="alert alert-info">
+            <a class="close" ng-click="remove($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></a>
+              <b><input ng-model="e.title">
+                <input value="{{e.start | date:'dd/MM HH:mm'}}">
+                {{e.start | date:"dd/MM HH:mm"}}
+                -
+                {{e.end | date:"dd/MM HH:mm"}}</b>
+            </a>
+          </div>
+        </li>
+      </ul>
       <div class="span4">
         <button type="button" class="btn btn-primary" ng-click="addEvent()">
           Adicionar Evento
         </button>
       </div>
-
-      <ul class="unstyled">
-        <li ng-repeat="e in events">
-          <div class="alert alert-info">
-            <a class="close" ng-click="remove($index)">
-              <i class="icon-remove"></i>
-            </a>
-            <b><input ng-model="e.title">
-              {{e.start | date:"MMM dd"}}
-              -
-              {{e.end | date:"MMM dd"}}</b>
-          </div>
-        </li>
-      </ul>
-    </div>
+    </div> -->
+    <!-- events modifications ends-->
+    <!-- options begins-->
     <div class="painel header">
       <div class="btn-toolbar">
         <p class="pull-left lead">Opções de visualização:</p>
-        <div class="btn-group pull-right">
-          <button class="btn btn-success" ng-click="changeView('agendaDay', 'myCalendar1')">Dia</button>
-          <button class="btn btn-success" ng-click="changeView('agendaWeek', 'myCalendar1')">Semana</button>
-          <button class="btn btn-success" ng-click="changeView('month', 'myCalendar1')">Mês</button>
-        </div><br/>
+        <div class="btn-group pull-left">
+          <button class="btn btn-success" ng-click="changeView('agendaDay', 'myCalendar')">Dia</button>
+          <button class="btn btn-success" ng-click="changeView('agendaWeek', 'myCalendar')">Semana</button>
+          <button class="btn btn-success" ng-click="changeView('month', 'myCalendar')">Mês</button>
+        </div>
+        <!-- options ends -->
+        <br/>
       </div>
-      <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
+      <!-- #Calendar begins -->
+      <div class="calendar" ng-model="eventSources" calendar="myCalendar" ui-calendar="uiConfig.calendar"></div>
+      <!-- #Calendar ends -->
       <br/>
     </div>
   </div>

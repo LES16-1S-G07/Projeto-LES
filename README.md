@@ -7,7 +7,6 @@
 * [AngularJS](http://angularjs.org/)
 * [UI-Calendar](https://github.com/angular-ui/ui-calendar)
 
-
 ## Pré-requisitos
 * [Git](https://git-scm.com/downloads).
 * [Node.js](https://nodejs.org/en/download/). Sê tiver problemas, verifique por soluções em [GitHub Gist](https://gist.github.com/isaacs/579814)
@@ -43,7 +42,7 @@ $ grunt
 ```
 A aplicação deve rodar na porta 3000 em ambiente de desenvolvimento (veja /config/env/* para mais detalhes)
 * [http://localhost:3000](http://localhost:3000)
-* explore `config/env/development.js` para mais informações
+* explore 'config/env/development.js' para mais informações
 
 ### Modo de produção
 
@@ -64,6 +63,3 @@ Em Produção:
 ```bash
 MONGO_SEED=true grunt prod
 ```
-
-## Créditos
-Baseado no template criado pelo [Time MeanJS]( https://github.com/meanjs/mean)
