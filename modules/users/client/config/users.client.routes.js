@@ -57,6 +57,15 @@
           pageTitle: 'Configurar foto'
         }
       })
+      .state('settings.personal', {
+        url: '/personal',
+        templateUrl: 'modules/users/client/views/settings/personal.client.view.html',
+        controller: 'SettingsController',
+        controllerAs: 'vm',
+        data: {
+          pageTitle: 'Agenda Pessoal'
+        }
+      })
       .state('authentication', {
         abstract: true,
         url: '/authentication',

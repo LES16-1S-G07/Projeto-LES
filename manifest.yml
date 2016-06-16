@@ -9,5 +9,3 @@ applications:
   memory: 128M
   services:
   - mean-mongo
-  env:
-    NODE_ENV: cloud-foundry

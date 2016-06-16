@@ -98,7 +98,7 @@
         });
 
         describe('POST error', function() {
-          var errorMessage = 'Não foi encontrado nenhuma conta associada ao usuário informado';
+          var errorMessage = 'Usuário não encontrado';
           beforeEach(function() {
             $httpBackend.when('POST', '/api/auth/forgot', credentials).respond(400, {
               'message': errorMessage

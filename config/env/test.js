@@ -4,7 +4,7 @@ var defaultEnvConfig = require('./default');
 
 module.exports = {
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/mean-test',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || '127.0.0.1') + '/test',
     options: {
       user: '',
       pass: ''
@@ -13,16 +13,6 @@ module.exports = {
     debug: process.env.MONGODB_DEBUG || false
   },
   log: {
-    // logging with Morgan - https://github.com/expressjs/morgan
-    // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
-    // format: 'dev'
-    // fileLogger: {
-    //   directoryPath: process.cwd(),
-    //   fileName: 'app.log',
-    //   maxsize: 10485760,
-    //   maxFiles: 2,
-    //   json: false
-    // }
   },
   port: process.env.PORT || 3001,
   app: {
@@ -47,17 +37,6 @@ module.exports = {
     clientID: process.env.LINKEDIN_ID || 'APP_ID',
     clientSecret: process.env.LINKEDIN_SECRET || 'APP_SECRET',
     callbackURL: '/api/auth/linkedin/callback'
-  },
-  github: {
-    clientID: process.env.GITHUB_ID || 'APP_ID',
-    clientSecret: process.env.GITHUB_SECRET || 'APP_SECRET',
-    callbackURL: '/api/auth/github/callback'
-  },
-  paypal: {
-    clientID: process.env.PAYPAL_ID || 'CLIENT_ID',
-    clientSecret: process.env.PAYPAL_SECRET || 'CLIENT_SECRET',
-    callbackURL: '/api/auth/paypal/callback',
-    sandbox: true
   },
   mailer: {
     from: process.env.MAILER_FROM || 'MAILER_FROM',

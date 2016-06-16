@@ -58,9 +58,9 @@ var validateEnvironmentVariable = function () {
   console.log();
   if (!environmentFiles.length) {
     if (process.env.NODE_ENV) {
-      console.error(chalk.red('+ Error: No configuration file found for "' + process.env.NODE_ENV + '" environment using development instead'));
+      console.error(chalk.red('+ Error: Nenhum arquivo de configuração encontrado para "' + process.env.NODE_ENV + '" usando ambiente padrão'));
     } else {
-      console.error(chalk.red('+ Error: NODE_ENV is not defined! Using default development environment'));
+      console.error(chalk.red('+ Erro: NODE_ENV não definido! Usando ambiente de desenvolvimento padrão'));
     }
     process.env.NODE_ENV = 'development';
   }
@@ -98,7 +98,7 @@ var validateSessionSecret = function (config, testing) {
     return true;
   }
 
-  if (config.sessionSecret === 'MEAN') {
+  if (config.sessionSecret === 'C-Force42') {
     if (!testing) {
       console.log(chalk.red('+ WARNING: It is strongly recommended that you change sessionSecret config while running in production!'));
       console.log(chalk.red('  Please add `sessionSecret: process.env.SESSION_SECRET || \'super amazing secret\'` to '));
@@ -187,7 +187,7 @@ var initGlobalConfig = function () {
 
   // read package.json for the project information
   var pkg = require(path.resolve('./package.json'));
-  config.meanjs = pkg;
+  config.cf42 = pkg;
 
   // Extend the config object with the local-NODE_ENV.js custom/local environment. This will override any settings present in the local configuration.
   config = _.merge(config, (fs.existsSync(path.join(process.cwd(), 'config/env/local-' + process.env.NODE_ENV + '.js')) && require(path.join(process.cwd(), 'config/env/local-' + process.env.NODE_ENV + '.js'))) || {});

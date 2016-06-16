@@ -32,22 +32,8 @@ module.exports = function (grunt) {
           livereload: true
         }
       },
-      serverJS: {
-        files: _.union(defaultAssets.server.gruntConfig, defaultAssets.server.allJS),
-        tasks: ['eslint'],
-        options: {
-          livereload: true
-        }
-      },
       clientViews: {
         files: defaultAssets.client.views,
-        options: {
-          livereload: true
-        }
-      },
-      clientJS: {
-        files: defaultAssets.client.js,
-        tasks: ['eslint'],
         options: {
           livereload: true
         }
@@ -90,10 +76,6 @@ module.exports = function (grunt) {
       options: {
         logConcurrentOutput: true
       }
-    },
-    eslint: {
-      options: {},
-      //target: _.union(defaultAssets.server.gruntConfig, defaultAssets.server.allJS, defaultAssets.client.js, testAssets.tests.server, testAssets.tests.client, testAssets.tests.e2e)
     },
     csslint: {
       options: {
@@ -187,23 +169,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js'
-      }
-    },
-    protractor: {
-      options: {
-        configFile: 'protractor.conf.js',
-        noColor: false,
-        webdriverManagerUpdate: true
-      },
-      e2e: {
-        options: {
-          args: {} // Target-specific arguments
-        }
-      }
-    },
     copy: {
       localConfig: {
         src: 'config/env/local.example.js',
@@ -213,17 +178,6 @@ module.exports = function (grunt) {
         }
       }
     }
-  });
-
-  grunt.event.on('coverage', function(lcovFileContents, done) {
-    // Set coverage config so karma-coverage knows to run coverage
-    testConfig.coverage = true;
-    require('coveralls').handleInput(lcovFileContents, function(err) {
-      if (err) {
-        return done(err);
-      }
-      done();
-    });
   });
 
   // Load NPM tasks
@@ -286,18 +240,18 @@ module.exports = function (grunt) {
   });
 
   // Lint CSS and JavaScript files.
-  grunt.registerTask('lint', ['sass', 'less', 'eslint', 'csslint']);
+  grunt.registerTask('lint', ['sass', 'less', 'csslint']);
 
   // Lint project files and minify them into two production files.
   grunt.registerTask('build', ['env:dev', 'lint', 'ngAnnotate', 'uglify', 'cssmin']);
 
   // Run the project tests
-  grunt.registerTask('test', ['env:test', 'lint', 'mkdir:upload', 'copy:localConfig', 'server', 'mochaTest', 'karma:unit', 'protractor']);
+  grunt.registerTask('test', ['env:test', 'lint', 'mkdir:upload', 'copy:localConfig', 'server', 'mochaTest']);
   grunt.registerTask('test:server', ['env:test', 'lint', 'server', 'mochaTest']);
-  grunt.registerTask('test:client', ['env:test', 'lint', 'karma:unit']);
-  grunt.registerTask('test:e2e', ['env:test', 'lint', 'dropdb', 'server', 'protractor']);
+  grunt.registerTask('test:client', ['env:test', 'lint']);
+  grunt.registerTask('test:e2e', ['env:test', 'lint', 'dropdb', 'server']);
   // Run project coverage
-  grunt.registerTask('coverage', ['env:test', 'lint', 'mocha_istanbul:coverage', 'karma:unit']);
+  grunt.registerTask('coverage', ['env:test', 'lint', 'mocha_istanbul:coverage']);
 
   // Run the project in development mode
   grunt.registerTask('default', ['env:dev', 'lint', 'mkdir:upload', 'copy:localConfig', 'concurrent:default']);

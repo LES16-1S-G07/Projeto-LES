@@ -13,7 +13,7 @@ module.exports = {
   // Session Cookie settings
   sessionCookie: {
     // session expiration is set by default to 24 hours
-    maxAge: 24 * (60 * 60 * 1000),
+    maxAge: 24 * ( 60 * 60 * 1000 ),
     // httpOnly flag makes sure the cookie is only accessed
     // through the HTTP protocol and not JS/browser
     httpOnly: true,
@@ -23,7 +23,7 @@ module.exports = {
     secure: false
   },
   // sessionSecret should be changed for security measures and concerns
-  sessionSecret: process.env.SESSION_SECRET || 'MEAN',
+  sessionSecret: process.env.SESSION_SECRET || 'C-Force42',
   // sessionKey is set to the generic sessionId key used by PHP applications
   // for obsecurity reasons
   sessionKey: 'sessionId',
@@ -31,7 +31,7 @@ module.exports = {
   // Lusca config
   csrf: {
     csrf: false,
-    csp: { /* Content Security Policy object */},
+    csp: { /* Content Security Policy object */ },
     xframe: 'SAMEORIGIN',
     p3p: 'ABCDEF',
     xssProtection: true
