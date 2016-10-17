@@ -6,7 +6,6 @@
 var path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   mongoose = require('mongoose'),
-  passport = require('passport'),
   User = mongoose.model('User');
 
 // URLs for which user can't be redirected on signin
@@ -48,7 +47,6 @@ exports.signup = function (req, res) {
     }
   });
 };
-
 /**
  * Signin after passport authentication
  */
@@ -90,8 +88,6 @@ exports.oauthCall = function (strategy, scope) {
     if (noReturnUrls.indexOf(req.query.redirect_to) === -1) {
       req.session.redirect_to = req.query.redirect_to;
     }
-    // Authenticate
-    passport.authenticate(strategy, scope)(req, res, next);
   };
 };
 
@@ -103,22 +99,6 @@ exports.oauthCallback = function (strategy) {
     // Pop redirect URL from session
     var sessionRedirectURL = req.session.redirect_to;
     delete req.session.redirect_to;
-
-    passport.authenticate(strategy, function (err, user, redirectURL) {
-      if (err) {
-        return res.redirect('/authentication/signin?err=' + encodeURIComponent(errorHandler.getErrorMessage(err)));
-      }
-      if (!user) {
-        return res.redirect('/authentication/signin');
-      }
-      req.login(user, function (err) {
-        if (err) {
-          return res.redirect('/authentication/signin');
-        }
-
-        return res.redirect(redirectURL || sessionRedirectURL || '/');
-      });
-    })(req, res, next);
   };
 };
 

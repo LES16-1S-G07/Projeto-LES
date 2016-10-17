@@ -1,16 +1,17 @@
 'use strict';
 // add all the global libraries here
+// TODO: FIX all the paths for the imports bellow
 module.exports = {
   client: {
     lib: {
       css: [
-        // bower:css
+        // css
+        'public/lib/bootstrap/dist/css/normalize.css',
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css'
-        // endbower
       ],
       js: [
-        // bower:js
+        // js
         'public/lib/angular/angular.js',
         'public/lib/angular-resource/angular-resource.js',
         'public/lib/angular-animate/angular-animate.js',
@@ -24,7 +25,6 @@ module.exports = {
         'public/lib/jquery/dist/jquery.min.js',
         'public/lib/angular-ui-calendar/src/calendar.js',
         'public/lib/fullcalendar/dist/fullcalendar.min.js',
-        // endbower
         // locale begins
         'public/lib/angular-locale-pt-br/angular-locale_pt-br.js',
         'public/lib/fullcalendar/dist/lang/pt-br.js'

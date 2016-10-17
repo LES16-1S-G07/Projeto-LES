@@ -2,10 +2,9 @@
 
 module.exports = {
   app: {
-    title: 'C-Force42',
+    title: 'c-force42',
     description: 'Um website sobre a academia C-Force42.',
-    keywords: 'mongodb, express, angularjs, node.js, mongoose, passport',
-    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
+    keywords: 'mongodb, express, angularjs, node.js, mongoose',
   },
   port: process.env.PORT || 3000,
   host: process.env.HOST || '0.0.0.0',
@@ -28,14 +27,6 @@ module.exports = {
   // for obsecurity reasons
   sessionKey: 'sessionId',
   sessionCollection: 'sessions',
-  // Lusca config
-  csrf: {
-    csrf: false,
-    csp: { /* Content Security Policy object */ },
-    xframe: 'SAMEORIGIN',
-    p3p: 'ABCDEF',
-    xssProtection: true
-  },
   logo: 'modules/core/client/img/brand/logo.png',
   favicon: 'modules/core/client/img/brand/favicon.ico',
   uploads: {

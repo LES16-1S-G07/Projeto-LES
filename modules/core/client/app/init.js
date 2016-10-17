@@ -22,7 +22,6 @@
   angular.element(document).ready(init);
 
   function init() {
-    // Fixing facebook bug with redirect
     if (window.location.hash && window.location.hash === '#_=_') {
       if (window.history && history.pushState) {
         window.history.pushState('', document.title, window.location.pathname);

@@ -15,11 +15,9 @@ var config = require('../config'),
   methodOverride = require('method-override'),
   cookieParser = require('cookie-parser'),
   helmet = require('helmet'),
-  flash = require('connect-flash'),
   consolidate = require('consolidate'),
   path = require('path'),
-  _ = require('lodash'),
-  lusca = require('lusca');
+  _ = require('lodash');
 
 /**
  * Initialize local variables
@@ -32,8 +30,6 @@ module.exports.initLocalVariables = function (app) {
     app.locals.secure = config.secure.ssl;
   }
   app.locals.keywords = config.app.keywords;
-  app.locals.googleAnalyticsTrackingID = config.app.googleAnalyticsTrackingID;
-  app.locals.facebookAppId = config.facebook.clientID;
   app.locals.jsFiles = config.files.client.js;
   app.locals.cssFiles = config.files.client.css;
   app.locals.livereload = config.livereload;
@@ -89,9 +85,8 @@ module.exports.initMiddleware = function (app) {
   app.use(bodyParser.json());
   app.use(methodOverride());
 
-  // Add the cookie parser and flash middleware
+  // Add the cookie parser
   app.use(cookieParser());
-  app.use(flash());
 };
 
 /**
@@ -126,9 +121,6 @@ module.exports.initSession = function (app, db) {
       collection: config.sessionCollection
     })
   }));
-
-  // Add Lusca CSRF Middleware
-  app.use(lusca(config.csrf));
 };
 
 /**

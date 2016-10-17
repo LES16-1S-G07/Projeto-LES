@@ -298,54 +298,6 @@ describe( 'User CRUD tests', function () {
     } );
   } );
 
-  it( 'forgot password should return 400 for no username provided', function ( done ) {
-    var provider = 'facebook';
-    user.provider = provider;
-    user.roles = [ 'user' ];
-
-    user.save( function ( err ) {
-      should.not.exist( err );
-      agent.post( '/api/auth/forgot' )
-        .send( {
-          username: ''
-        } )
-        .expect( 400 )
-        .end( function ( err, res ) {
-          // Handle error
-          if ( err ) {
-            return done( err );
-          }
-
-          res.body.message.should.equal( 'Campo usuário é obrigatorio' );
-          return done();
-        } );
-    } );
-  } );
-
-  it( 'forgot password should return 400 for non-local provider set for the user object', function ( done ) {
-    var provider = 'facebook';
-    user.provider = provider;
-    user.roles = [ 'user' ];
-
-    user.save( function ( err ) {
-      should.not.exist( err );
-      agent.post( '/api/auth/forgot' )
-        .send( {
-          username: user.username
-        } )
-        .expect( 400 )
-        .end( function ( err, res ) {
-          // Handle error
-          if ( err ) {
-            return done( err );
-          }
-
-          res.body.message.should.equal( 'Parece que você está logado usando sua conta do ' + user.provider + ' ' );
-          return done();
-        } );
-    } );
-  } );
-
   it( 'forgot password should be able to reset password for user password reset request', function ( done ) {
     user.roles = [ 'user' ];
 

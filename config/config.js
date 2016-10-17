@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * Module dependencies.
  */
@@ -8,7 +7,6 @@ var _ = require('lodash'),
   glob = require('glob'),
   fs = require('fs'),
   path = require('path');
-
 /**
  * Get files by glob patterns
  */
@@ -55,7 +53,6 @@ var getGlobbedPaths = function (globPatterns, excludes) {
  */
 var validateEnvironmentVariable = function () {
   var environmentFiles = glob.sync('./config/env/' + process.env.NODE_ENV + '.js');
-  console.log();
   if (!environmentFiles.length) {
     if (process.env.NODE_ENV) {
       console.error(chalk.red('+ Error: Nenhum arquivo de configuração encontrado para "' + process.env.NODE_ENV + '" usando ambiente padrão'));
@@ -67,7 +64,6 @@ var validateEnvironmentVariable = function () {
   // Reset console color
   console.log(chalk.white(''));
 };
-
 /**
  * Validate Secure=true parameter can actually be turned on
  * because it requires certs and key files to be available
@@ -77,40 +73,27 @@ var validateSecureMode = function (config) {
   if (!config.secure || config.secure.ssl !== true) {
     return true;
   }
-
   var privateKey = fs.existsSync(path.resolve(config.secure.privateKey));
   var certificate = fs.existsSync(path.resolve(config.secure.certificate));
-
   if (!privateKey || !certificate) {
     console.log(chalk.red('+ Error: Certificate file or key file is missing, falling back to non-SSL mode'));
     console.log(chalk.red('  To create them, simply run the following from your shell: sh ./scripts/generate-ssl-certs.sh'));
-    console.log();
     config.secure.ssl = false;
   }
 };
-
 /**
  * Validate Session Secret parameter is not set to default in production
  */
 var validateSessionSecret = function (config, testing) {
-
   if (process.env.NODE_ENV !== 'production') {
     return true;
   }
-
   if (config.sessionSecret === 'C-Force42') {
-    if (!testing) {
-      console.log(chalk.red('+ WARNING: It is strongly recommended that you change sessionSecret config while running in production!'));
-      console.log(chalk.red('  Please add `sessionSecret: process.env.SESSION_SECRET || \'super amazing secret\'` to '));
-      console.log(chalk.red('  `config/env/production.js` or `config/env/local.js`'));
-      console.log();
-    }
     return false;
   } else {
     return true;
   }
 };
-
 /**
  * Initialize global configuration files
  */
@@ -120,11 +103,9 @@ var initGlobalConfigFolders = function (config, assets) {
     server: {},
     client: {}
   };
-
   // Setting globbed client paths
   config.folders.client = getGlobbedPaths(path.join(process.cwd(), 'modules/*/client/'), process.cwd().replace(new RegExp(/\\/g), '/'));
 };
-
 /**
  * Initialize global configuration files
  */
@@ -134,7 +115,6 @@ var initGlobalConfigFiles = function (config, assets) {
     server: {},
     client: {}
   };
-
   // Setting Globbed model files
   config.files.server.models = getGlobbedPaths(assets.server.models);
 
@@ -159,14 +139,12 @@ var initGlobalConfigFiles = function (config, assets) {
   // Setting Globbed test files
   config.files.client.tests = getGlobbedPaths(assets.client.tests);
 };
-
 /**
  * Initialize global configuration
  */
 var initGlobalConfig = function () {
   // Validate NODE_ENV existence
   validateEnvironmentVariable();
-
   // Get the default assets
   var defaultAssets = require(path.join(process.cwd(), 'config/assets/default'));
 
@@ -212,7 +190,6 @@ var initGlobalConfig = function () {
 
   return config;
 };
-
 /**
  * Set configuration object
  */

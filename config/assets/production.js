@@ -1,16 +1,16 @@
 'use strict';
-
+// TODO: Update the imports bellow
+// Minify and bundle all the js and css files
 module.exports = {
   client: {
     lib: {
       css: [
-        // bower:css
+        // css
         'public/lib/bootstrap/dist/css/bootstrap.min.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.min.css'
-        // endbower
       ],
       js: [
-        // bower:js
+        // js
         'public/lib/angular/angular.min.js',
         'public/lib/angular-resource/angular-resource.min.js',
         'public/lib/angular-animate/angular-animate.min.js',
@@ -19,7 +19,6 @@ module.exports = {
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
         'public/lib/angular-file-upload/dist/angular-file-upload.min.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
-        // endbower
       ]
     },
     css: 'public/dist/application.min.css',
