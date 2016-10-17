@@ -12,6 +12,9 @@
 * [Node.js](https://nodejs.org/en/download/). Sê tiver problemas, verifique por soluções em [GitHub Gist](https://gist.github.com/isaacs/579814)
 * [MongoDB](http://www.mongodb.org/downloads), use a porta padrão(27017).
 
+```bash
+$ npm install -g bower
+```
 * [Grunt Task Runner](http://gruntjs.com/) para automatizar o processo de desenvolvimento.
 
 ```bash
