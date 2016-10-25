@@ -1,7 +1,7 @@
-'use strict';
 
 angular.module('core').factory('authInterceptor', ['$q', '$injector',
   function ($q, $injector) {
+    'use strict';
     return {
       responseError: function(rejection) {
         if (!rejection.config.ignoreAuthModule) {

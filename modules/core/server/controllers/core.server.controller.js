@@ -1,7 +1,4 @@
-'use strict';
-
 var validator = require('validator');
-
 /**
  * Render the main application page
  */

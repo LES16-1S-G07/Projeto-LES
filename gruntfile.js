@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Module dependencies.
  */
@@ -11,6 +9,7 @@ var _ = require('lodash'),
   path = require('path');
 
 module.exports = function (grunt) {
+  'use strict';
   // Project Configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),

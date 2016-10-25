@@ -1,6 +1,5 @@
 ﻿(function () {
   'use strict';
-
   // Users directive used to force lowercase input
   angular
     .module('users')

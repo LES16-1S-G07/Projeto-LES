@@ -1,6 +1,7 @@
-'use strict';
 
 (function() {
+  'use strict';
+  
   // Password Verify Directive Spec
   describe('PasswordVerifyDirective', function() {
     // Initialize global variables

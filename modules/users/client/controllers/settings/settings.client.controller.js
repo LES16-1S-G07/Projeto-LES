@@ -32,7 +32,7 @@
         date: $scope.date,
         time: $scope.time
       } );
-    }
+    };
     $scope.Remove = function ( index ) {
       $scope.date_time.splice( index, 1 );
       //  $scope.date_time.splice( $scope.date_time.indexOf(x), 1 );

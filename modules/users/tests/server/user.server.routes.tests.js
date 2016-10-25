@@ -1,4 +1,3 @@
-'use strict';
 
 var should = require( 'should' ),
   request = require( 'supertest' ),
@@ -21,6 +20,8 @@ var app,
  * User routes tests
  */
 describe( 'User CRUD tests', function () {
+  'use strict';
+  
 
   before( function ( done ) {
     // Get application

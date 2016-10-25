@@ -1,6 +1,7 @@
-'use strict';
 
 ( function () {
+  'use strict';
+  
   // Password Validator Directive Spec
   describe( 'PasswordValidatorDirective', function () {
     // Initialize global variables

@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-// define a directive a ser usada para validar senhas
+// define a directive to validate password
   angular
     .module('users')
     .directive('passwordValidator', passwordValidator);

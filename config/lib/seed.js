@@ -106,9 +106,7 @@ function seedTheUser( user ) {
 function reportError( reject ) {
   return function ( err ) {
     if ( seedOptions.logResults ) {
-      console.log();
-      console.log( 'Database Seeding:\t\t\t' + err );
-      console.log();
+      console.log("", 'Database Seeding:\t\t\t' + err,"" );
     }
     reject( err );
   };

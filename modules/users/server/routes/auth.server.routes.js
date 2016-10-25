@@ -1,10 +1,6 @@
-'use strict';
-
-/**
- * Module dependencies
- */
 
 module.exports = function (app) {
+  'use strict';
   // User Routes
   var users = require('../controllers/users.server.controller');
 

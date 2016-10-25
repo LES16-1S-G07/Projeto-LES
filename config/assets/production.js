@@ -1,6 +1,3 @@
-'use strict';
-// TODO: Update the imports bellow
-// Minify and bundle all the js and css files
 module.exports = {
   client: {
     lib: {

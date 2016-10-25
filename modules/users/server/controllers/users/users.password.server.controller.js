@@ -1,8 +1,4 @@
-'use strict';
 
-/**
- * Module dependencies
- */
 var path = require('path'),
   config = require(path.resolve('./config/config')),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
@@ -18,6 +14,7 @@ var smtpTransport = nodemailer.createTransport(config.mailer.options);
  * Forgot for reset password (forgot POST)
  */
 exports.forgot = function (req, res, next) {
+  'use strict';
   async.waterfall([
     // Generate random token
     function (done) {

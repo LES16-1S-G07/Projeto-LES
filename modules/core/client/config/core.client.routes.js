@@ -45,8 +45,6 @@
         url: '/horarios',
         templateUrl: 'modules/core/client/views/horarios.html',
         controller: 'CalendarController'
-        //controllerAs: 'vm'
-
       })
       .state('not-found', {
         url: '/not-found',

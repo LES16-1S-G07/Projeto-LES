@@ -1,4 +1,4 @@
-'use strict';
+
 
 // Load the module dependencies
 var config = require('../config'),
@@ -13,6 +13,7 @@ var config = require('../config'),
 
 // Define the Socket.io configuration method
 module.exports = function (app, db) {
+  'use strict';
   var server;
   if (config.secure && config.secure.ssl === true) {
     // Load SSL key and certificate

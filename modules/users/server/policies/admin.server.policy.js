@@ -1,8 +1,4 @@
-'use strict';
 
-/**
- * Module dependencies
- */
 var acl = require('acl');
 
 // Using the memory backend
@@ -12,6 +8,7 @@ acl = new acl(new acl.memoryBackend());
  * Invoke Admin Permissions
  */
 exports.invokeRolesPolicies = function () {
+  'use strict';
   acl.allow([{
     roles: ['admin'],
     allows: [{
@@ -28,6 +25,7 @@ exports.invokeRolesPolicies = function () {
  * Check If Admin Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
+  'use strict';
   var roles = (req.user) ? req.user.roles : ['guest'];
 
   // Check for user roles

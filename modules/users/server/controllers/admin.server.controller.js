@@ -1,8 +1,4 @@
-'use strict';
 
-/**
- * Module dependencies
- */
 var path = require('path'),
   mongoose = require('mongoose'),
   User = mongoose.model('User'),

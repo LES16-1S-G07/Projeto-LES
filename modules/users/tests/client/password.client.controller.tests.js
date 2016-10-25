@@ -1,6 +1,7 @@
-'use strict';
 
 (function() {
+  'use strict';
+  
   // Password controller Spec
   describe('PasswordController', function() {
     // Initialize global variables

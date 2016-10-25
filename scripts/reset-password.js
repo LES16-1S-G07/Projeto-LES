@@ -1,4 +1,3 @@
-'use strict';
 
 var nodemailer = require('nodemailer'),
   mongoose = require('mongoose'),
@@ -25,6 +24,8 @@ var text = [
 mg.loadModels();
 
 mg.connect(function (db) {
+  'use strict';
+  
   var User = mongoose.model('User');
 
   User.find().exec(function (err, users) {
@@ -71,12 +72,9 @@ mg.connect(function (db) {
         }
       };
     }
-
     // report the processing results and exit
     function reportAndExit(processedCount, errorCount) {
       var successCount = processedCount - errorCount;
-
-      console.log();
 
       if (processedCount === 0) {
         console.log(chalk.yellow('Nenhum usuário encontrado.'));

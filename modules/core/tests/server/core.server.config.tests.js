@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  * Module dependencies.
@@ -24,6 +23,8 @@ var user1,
   originalLogConfig;
 
 describe('Configuration Tests:', function () {
+  'use strict';
+  
 
   describe('Testing default seedDB', function () {
     before(function(done) {

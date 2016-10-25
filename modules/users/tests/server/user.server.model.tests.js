@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  * Module dependencies.
@@ -18,6 +17,8 @@ var user1,
  * Unit tests
  */
 describe( 'User Model Unit Tests:', function () {
+  'use strict';
+  
 
   before( function () {
     user1 = {

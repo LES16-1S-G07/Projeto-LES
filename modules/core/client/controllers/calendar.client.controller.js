@@ -145,5 +145,4 @@
     /* event sources array*/
     $scope.eventSources = [ $scope.events, $scope.eventSource, $scope.eventsF ];
   }
-  /* EOF */
 } )();

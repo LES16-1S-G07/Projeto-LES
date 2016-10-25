@@ -1,6 +1,3 @@
-'use strict';
-// add all the global libraries here
-// TODO: FIX all the paths for the imports bellow
 module.exports = {
   client: {
     lib: {

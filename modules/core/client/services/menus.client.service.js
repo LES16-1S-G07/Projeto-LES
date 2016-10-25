@@ -1,8 +1,8 @@
-'use strict';
 
 // Menu service used for managing  menus
 angular.module('core').service('Menus', [
   function () {
+    'use strict';
     // Define a set of default roles
     this.defaultRoles = ['user', 'admin'];
 

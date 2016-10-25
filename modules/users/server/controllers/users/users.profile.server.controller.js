@@ -1,8 +1,4 @@
-'use strict';
 
-/**
- * Module dependencies
- */
 var _ = require('lodash'),
   fs = require('fs'),
   path = require('path'),
@@ -16,6 +12,7 @@ var _ = require('lodash'),
  * Update user details
  */
 exports.update = function (req, res) {
+  'use strict';
   // Init Variables
   var user = req.user;
 
